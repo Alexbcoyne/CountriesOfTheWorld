@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guesser Game</title>
+        <link rel="stylesheet" href="style.css">
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    </head>
+
+    <body>
+        <!-- Don't be looking in here for the answers!! -->
+        <div class="screen">
+            <div class="top-container">
+                <h1>Country Guessing Game</h1>
+            </div>
+            <div class="header" id="header">
+                <form id="form" autocomplete="off" onkeypress="return event.key != 'Enter'">
+                    <input type="text" id="cname" placeholder="Enter Country Name">
+                    <input id="enterBtn" type="button" onclick="getInputValue();" value="Enter">
+                    <input id="resetBtn" type="button" onclick="getReset();" value="Reset">
+                    <!-- automatic test --> <input id="testBtn" type="button" onclick="getTest();" value="Test">
+                    <!-- automatic test --> <input id="testBtn" type="button" onclick="getAliasTest();" value="Alias Test">
+                    <p id="counter" class="band"></p>
+                    <p id="sucFail" class="band"></p>
+
+                </form>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <table class="table-europe">
+                        <tr>
+                            <th>Europe</th>
+                        </tr>
+                        <tr>
+                            <td id="albania"></td>
+                        </tr>
+                        <tr>
+                            <td id="andorra"></td>
+                        </tr>
+                        <tr>
+                            <td id="austria"></td>
+                        </tr>
+                        <tr>
+                            <td id="belarus"></td>
+                        </tr>
+                        <tr>
+                            <td id="belgium"></td>
+                        </tr>
+                        <tr>
+                            <td id="bosnia and herzegovina"></td>
+                        </tr>
+                        <tr>
+                            <td id="bulgaria"></td>
+                        </tr>
+                        <tr>
+                            <td id="croatia"></td>
+                        </tr>
+                        <tr>
+                            <td id="czech republic"></td>
+                        </tr>
+                        <tr>
+                            <td id="denmark"></td>
+                        </tr>
+                        <tr>
+                            <td id="estonia"></td>
+                        </tr>
+                        <tr>
+                            <td id="finland"></td>
+                        </tr>
+                        <tr>
+                            <td id="france"></td>
+                        </tr>
+                        <tr>
+                            <td id="germany"></td>
+                        </tr>
+                        <tr>
+                            <td id="greece"></td>
+                        </tr>
+                        <tr>
+                            <td id="hungary"></td>
+                        </tr>
+                        <tr>
+                            <td id="iceland"></td>
+                        </tr>
+                        <tr>
+                            <td id="ireland"></td>
+                        </tr>
+                        <tr>
+                            <td id="italy"></td>
+                        </tr>
+                        <tr>
+                            <td id="kosovo"></td>
+                        </tr>
+                        <tr>
+                            <td id="latvia"></td>
+                        </tr>
+                        <tr>
+                            <td id="liechtenstein"></td>
+                        </tr>
+                        <tr>
+                            <td id="lithuania"></td>
+                        </tr>
+                        <tr>
+                            <td id="luxembourg"></td>
+                        </tr>
+                        <tr>
+                            <td id="malta"></td>
+                        </tr>
+                        <tr>
+                            <td id="moldova"></td>
+                        </tr>
+                        <tr>
+                            <td id="monaco"></td>
+                        </tr>
+                        <tr>
+                            <td id="montenegro"></td>
+                        </tr>
+                        <tr>
+                            <td id="netherlands"></td>
+                        </tr>
+                        <tr>
+                            <td id="north macedonia"></td>
+                        </tr>
+                        <tr>
+                            <td id="norway"></td>
+                        </tr>
+                        <tr>
+                            <td id="poland"></td>
+                        </tr>
+                        <tr>
+                            <td id="portugal"></td>
+                        </tr>
+                        <tr>
+                            <td id="romania"></td>
+                        </tr>
+                        <tr>
+                            <td id="russia"></td>
+                        </tr>
+                        <tr>
+                            <td id="san marino"></td>
+                        </tr>
+                        <tr>
+                            <td id="serbia"></td>
+                        </tr>
+                        <tr>
+                            <td id="slovakia"></td>
+                        </tr>
+                        <tr>
+                            <td id="slovenia"></td>
+                        </tr>
+                        <tr>
+                            <td id="spain"></td>
+                        </tr>
+                        <tr>
+                            <td id="sweden"></td>
+                        </tr>
+                        <tr>
+                            <td id="switzerland"></td>
+                        </tr>
+                        <tr>
+                            <td id="ukraine"></td>
+                        </tr>
+                        <tr>
+                            <td id="united kingdom"></td>
+                        </tr>
+                        <tr>
+                            <td id="vatican"></td>
+                        </tr>                    
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="table-asia">
+                        <tr>
+                            <th>Asia</th>
+                        </tr>
+                        <tr>
+                            <td id="afghanistan"></td>
+                        </tr>
+                        <tr>
+                            <td id="armenia"></td>
+                        </tr>
+                        <tr>
+                            <td id="azerbaijan"></td>
+                        </tr>
+                        <tr>
+                            <td id="bahrain"></td>
+                        </tr>
+                        <tr>
+                            <td id="bangladesh"></td>
+                        </tr>
+                        <tr>
+                            <td id="bhutan"></td>
+                        </tr>
+                        <tr>
+                            <td id="brunei"></td>
+                        </tr>
+                        <tr>
+                            <td id="cambodia"></td>
+                        </tr>
+                        <tr>
+                            <td id="china"></td>
+                        </tr>
+                        <tr>
+                            <td id="cyprus"></td>
+                        </tr>
+                        <tr>
+                            <td id="georgia"></td>
+                        </tr>
+                        <tr>
+                            <td id="india"></td>
+                        </tr>
+                        <tr>
+                            <td id="indonesia"></td>
+                        </tr>
+                        <tr>
+                            <td id="iran"></td>
+                        </tr>
+                        <tr>
+                            <td id="iraq"></td>
+                        </tr>
+                        <tr>
+                            <td id="israel"></td>
+                        </tr>
+                        <tr>
+                            <td id="japan"></td>
+                        </tr>
+                        <tr>
+                            <td id="jordan"></td>
+                        </tr>
+                        <tr>
+                            <td id="kazakhstan"></td>
+                        </tr>
+                        <tr>
+                            <td id="kuwait"></td>
+                        </tr>
+                        <tr>
+                            <td id="kyrgyzstan"></td>
+                        </tr>
+                        <tr>
+                            <td id="laos"></td>
+                        </tr>
+                        <tr>
+                            <td id="lebanon"></td>
+                        </tr>
+                        <tr>
+                            <td id="malaysia"></td>
+                        </tr>
+                        <tr>
+                            <td id="maldives"></td>
+                        </tr>
+                        <tr>
+                            <td id="mongolia"></td>
+                        </tr>
+                        <tr>
+                            <td id="myanmar"></td>
+                        </tr>
+                        <tr>
+                            <td id="nepal"></td>
+                        </tr>
+                        <tr>
+                            <td id="north korea"></td>
+                        </tr>
+                        <tr>
+                            <td id="oman"></td>
+                        </tr>
+                        <tr>
+                            <td id="pakistan"></td>
+                        </tr>
+                        <tr>
+                            <td id="palestine"></td>
+                        </tr>
+                        <tr>
+                            <td id="philippines"></td>
+                        </tr>
+                        <tr>
+                            <td id="qatar"></td>
+                        </tr>
+                        <tr>
+                            <td id="saudi arabia"></td>
+                        </tr>
+                        <tr>
+                            <td id="singapore"></td>
+                        </tr>
+                        <tr>
+                            <td id="south korea"></td>
+                        </tr>
+                        <tr>
+                            <td id="sri lanka"></td>
+                        </tr>
+                        <tr>
+                            <td id="syria"></td>
+                        </tr>
+                        <tr>
+                            <td id="taiwan"></td>
+                        </tr>
+                        <tr>
+                            <td id="tajikistan"></td>
+                        </tr>
+                        <tr>
+                            <td id="thailand"></td>
+                        </tr>
+                        <tr>
+                            <td id="timor-leste"></td>
+                        </tr>
+                        <tr>
+                            <td id="turkey"></td>
+                        </tr>
+                        <tr>
+                            <td id="turkmenistan"></td>
+                        </tr>
+                        <tr>
+                            <td id="united arab emirates"></td>
+                        </tr>
+                        <tr>
+                            <td id="uzbekistan"></td>
+                        </tr>
+                        <tr>
+                            <td id="vietnam"></td>
+                        </tr>
+                        <tr>
+                            <td id="yemen"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="table-africa">
+                        <tr>
+                            <th>Africa</th>
+                        </tr>
+                        <tr>
+                            <td id="algeria"></td>
+                        </tr>
+                        <tr>
+                            <td id="angola"></td>
+                        </tr>
+                        <tr>
+                            <td id="benin"></td>
+                        </tr>
+                        <tr>
+                            <td id="botswana"></td>
+                        </tr>
+                        <tr>
+                            <td id="burkina faso"></td>
+                        </tr>
+                        <tr>
+                            <td id="burundi"></td>
+                        </tr>
+                        <tr>
+                            <td id="cameroon"></td>
+                        </tr>
+                        <tr>
+                            <td id="cape verde"></td>
+                        </tr>
+                        <tr>
+                            <td id="central african republic"></td>
+                        </tr>
+                        <tr>
+                            <td id="chad"></td>
+                        </tr>
+                        <tr>
+                            <td id="comoros"></td>
+                        </tr>
+                        <tr>
+                            <td id="djibouti"></td>
+                        </tr>
+                        <tr>
+                            <td id="democratic republic of the congo"></td>
+                        </tr>
+                        <tr>
+                            <td id="egypt"></td>
+                        </tr>
+                        <tr>
+                            <td id="equatorial guinea"></td>
+                        </tr>
+                        <tr>
+                            <td id="eritrea"></td>
+                        </tr>
+                        <tr>
+                            <td id="eswatini"></td>
+                        </tr>
+                        <tr>
+                            <td id="ethiopia"></td>
+                        </tr>
+                        <tr>
+                            <td id="gabon"></td>
+                        </tr>
+                        <tr>
+                            <td id="gambia"></td>
+                        </tr>
+                        <tr>
+                            <td id="ghana"></td>
+                        </tr>
+                        <tr>
+                            <td id="guinea"></td>
+                        </tr>
+                        <tr>
+                            <td id="guinea-bissau"></td>
+                        </tr>
+                        <tr>
+                            <td id="ivory coast"></td>
+                        </tr>
+                        <tr>
+                            <td id="kenya"></td>
+                        </tr>
+                        <tr>
+                            <td id="lesotho"></td>
+                        </tr>
+                        <tr>
+                            <td id="liberia"></td>
+                        </tr>
+                        <tr>
+                            <td id="libya"></td>
+                        </tr>
+                        <tr>
+                            <td id="madagascar"></td>
+                        </tr>
+                        <tr>
+                            <td id="malawi"></td>
+                        </tr>
+                        <tr>
+                            <td id="mali"></td>
+                        </tr>
+                        <tr>
+                            <td id="mauritania"></td>
+                        </tr>
+                        <tr>
+                            <td id="mauritius"></td>
+                        </tr>
+                        <tr>
+                            <td id="morocco"></td>
+                        </tr>
+                        <tr>
+                            <td id="mozambique"></td>
+                        </tr>
+                        <tr>
+                            <td id="namibia"></td>
+                        </tr>
+                        <tr>
+                            <td id="niger"></td>
+                        </tr>
+                        <tr>
+                            <td id="nigeria"></td>
+                        </tr>
+                        <tr>
+                            <td id="republic of the congo"></td>
+                        </tr>
+                        <tr>
+                            <td id="rwanda"></td>
+                        </tr>
+                        <tr>
+                            <td id="sao tome and principe"></td>
+                        </tr>
+                        <tr>
+                            <td id="senegal"></td>
+                        </tr>
+                        <tr>
+                            <td id="seychelles"></td>
+                        </tr>
+                        <tr>
+                            <td id="sierra leone"></td>
+                        </tr>
+                        <tr>
+                            <td id="somalia"></td>
+                        </tr>
+                        <tr>
+                            <td id="south africa"></td>
+                        </tr>
+                        <tr>
+                            <td id="south sudan"></td>
+                        </tr>
+                        <tr>
+                            <td id="sudan"></td>
+                        </tr>
+                        <tr>
+                            <td id="tanzania"></td>
+                        </tr>
+                        <tr>
+                            <td id="togo"></td>
+                        </tr>
+                        <tr>
+                            <td id="tunisia"></td>
+                        </tr>
+                        <tr>
+                            <td id="uganda"></td>
+                        </tr>
+                        <tr>
+                            <td id="zambia"></td>
+                        </tr>
+                        <tr>
+                            <td id="zimbabwe"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="table-oceania">
+                        <tr>
+                            <th>Oceania</th>
+                        </tr>
+                        <tr>
+                            <td id="australia"></td>
+                        </tr>
+                        <tr>
+                            <td id="fiji"></td>
+                        </tr>
+                        <tr>
+                            <td id="kiribati"></td>
+                        </tr>
+                        <tr>
+                            <td id="marshall islands"></td>
+                        </tr>
+                        <tr>
+                            <td id="micronesia"></td>
+                        </tr>
+                        <tr>
+                            <td id="nauru"></td>
+                        </tr>
+                        <tr>
+                            <td id="new zealand"></td>
+                        </tr>
+                        <tr>
+                            <td id="palau"></td>
+                        </tr>
+                        <tr>
+                            <td id="papua new guinea"></td>
+                        </tr>
+                        <tr>
+                            <td id="samoa"></td>
+                        </tr>
+                        <tr>
+                            <td id="solomon islands"></td>
+                        </tr>
+                        <tr>
+                            <td id="tonga"></td>
+                        </tr>
+                        <tr>
+                            <td id="tuvalu"></td>
+                        </tr>
+                        <tr>
+                            <td id="vanuatu"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="table-namerica">
+                        <tr>
+                            <th>North America</th>
+                        </tr>
+                        <tr>
+                            <td id="antigua and barbuda"></td>
+                        </tr>
+                        <tr>
+                            <td id="bahamas"></td>
+                        </tr>
+                        <tr>
+                            <td id="barbados"></td>
+                        </tr>
+                        <tr>
+                            <td id="belize"></td>
+                        </tr>
+                        <tr>
+                            <td id="canada"></td>
+                        </tr>
+                        <tr>
+                            <td id="costa rica"></td>
+                        </tr>
+                        <tr>
+                            <td id="cuba"></td>
+                        </tr>
+                        <tr>
+                            <td id="dominica"></td>
+                        </tr>
+                        <tr>
+                            <td id="dominican republic"></td>
+                        </tr>
+                        <tr>
+                            <td id="el salvador"></td>
+                        </tr>
+                        <tr>
+                            <td id="grenada"></td>
+                        </tr>
+                        <tr>
+                            <td id="guatemala"></td>
+                        </tr>
+                        <tr>
+                            <td id="haiti"></td>
+                        </tr>
+                        <tr>
+                            <td id="honduras"></td>
+                        </tr>
+                        <tr>
+                            <td id="jamaica"></td>
+                        </tr>
+                        <tr>
+                            <td id="mexico"></td>
+                        </tr>
+                        <tr>
+                            <td id="nicaragua"></td>
+                        </tr>
+                        <tr>
+                            <td id="panama"></td>
+                        </tr>
+                        <tr>
+                            <td id="saint kitts and nevis"></td>
+                        </tr>
+                        <tr>
+                            <td id="saint lucia"></td>
+                        </tr>
+                        <tr>
+                            <td id="saint vincent and the grenadines"></td>
+                        </tr>
+                        <tr>
+                            <td id="trinidad and tobago"></td>
+                        </tr>
+                        <tr>
+                            <td id="united states of america"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="table-samerica">
+                        <tr>
+                            <th>South America</th>
+                        </tr>
+                        <tr>
+                            <td id="argentina"></td>
+                        </tr>
+                        <tr>
+                            <td id="bolivia"></td>
+                        </tr>
+                        <tr>
+                            <td id="brazil"></td>
+                        </tr>
+                        <tr>
+                            <td id="chile"></td>
+                        </tr>
+                        <tr>
+                            <td id="colombia"></td>
+                        </tr>
+                        <tr>
+                            <td id="ecuador"></td>
+                        </tr>
+                        <tr>
+                            <td id="guyana"></td>
+                        </tr>
+                        <tr>
+                            <td id="paraguay"></td>
+                        </tr>
+                        <tr>
+                            <td id="peru"></td>
+                        </tr>
+                        <tr>
+                            <td id="suriname"></td>
+                        </tr>
+                        <tr>
+                            <td id="uraguay"></td>
+                        </tr>
+                        <tr>
+                            <td id="venezuela"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="main.js"></script>
+</html>

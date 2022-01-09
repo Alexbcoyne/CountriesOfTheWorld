@@ -1,0 +1,94 @@
+body{
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.screen {
+    margin: auto;
+    width: 60%;
+}
+
+.top-container {
+    background-color: #5b978b;
+    padding: 5px;
+    text-align: center;
+}
+
+.header {
+    background: #5b978b;
+    color: #f1f1f1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+p {
+    display: inline-block;
+}
+
+.row {
+    padding: 16px;
+    display: flex;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+}
+
+form {
+    padding: 0px 18px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+h1 {
+    font-size: 24px;
+    color: #f1f1f1;
+}
+
+table {
+    border-radius: 8px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    font-size: 14px;
+    border-width: 1px;
+    border-spacing: 2px;
+    width: 100%;
+}
+
+td {
+    height: 18px;
+    padding-left: 5px;
+}
+
+th {
+    background: #5b978b;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+tr:nth-child(odd){
+    background: #e6e6e6;
+}
+
+.band{
+    display: inline-block;
+    padding-left: 15px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 60%;
+}
+
+.sticky + .row {
+    padding-top: 67px;
+}
