@@ -42,7 +42,7 @@ const countryArr = [
     
     /* South America */
     "Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru",
-    "Suriname", "Uraguay", "Venezuela"
+    "Suriname", "Uruguay", "Venezuela"
 ];
 
 const aliasArr = [
