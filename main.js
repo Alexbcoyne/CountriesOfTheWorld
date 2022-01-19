@@ -4,7 +4,7 @@
  *  - Add countdown timer
  *  - Make webpage responsive for differnet devices
  */
-const countryArr = [
+ const countryArr = [
     /* Europe */
     "Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia",
     "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland",
@@ -45,11 +45,12 @@ const countryArr = [
     "Suriname", "Uruguay", "Venezuela"
 ];
 
+
 const aliasArr = [
     "Czechia", "Macedonia", "Holy See", "Vatican City", "UK",
     "Kazakstan", "Kyrgystan", "DPRK", "East Timor", "UAE",
     "Cabo Verde", "CAR", "DRC", "Congo-Brazzaville", "Swaziland",
-    "Antigua", "Saint Kitts", "St Kitts", "Saint Vincent", "St Vincent", "St Lucia", "Trinidad", "USA",
+    "Antigua", "Saint Kitts", "St Kitts", "Saint Vincent", "St Vincent", "St Lucia", "Trinidad", "USA", "America"
 ];
 
 const testArray = [
@@ -60,42 +61,6 @@ function containsSpecChars(str){
     const specialChars = /[ -]/;
     return specialChars.test(str);
 }
-
-
-var gB = "Guinea-Bissau";
-var input = "Guinea Bissau";
-
-
-//var regex = new RegExp('[a-z]'+specialChars.join('')+']', 'ig')
-//console.log(testArray[1].replace(/[^a-zA-Z]/gi, '') == input.replace(/[^a-zA-Z]/gi, ''));
-
-//var testString = "Guinea Bissau";
-//var testInput = "Central African Republic";
-
-//console.log(testArray[0].replace(/[^a-zA-Z]/ig, ""));
-//console.log(testArray[1].replace(/[^a-zA-Z]/ig, ""));
-
-//var countryOne = "Guinea-Bissau";
-//var inpTest = "Guinea Bissau";
-
-//console.log(countryOne == inpTest.replace(/[^a-zA-Z]/gi, ''))
-//var base="Guinea Bissau";
-//var input="Guinea-Bissau";
-//console.log(base.replace(/[^a-zA-Z]/gi, '') == input.replace(/[^a-zA-Z]/gi, ''));
-/**
- * REGEX STATION
- * array = [ Country-One, Country Two]
- * 
- * user input = Country One
- * user input = CountryTwo
- * 
- * read input, remove spacing and hyphen
- * compare with array
- * 
- * output = <Country-Name>
- * 
- */
-
 
 focusInput();
 
@@ -137,9 +102,7 @@ function getInputValue(){
             return element.toLowerCase() === inputVal.toLowerCase();
         });
 
-        if (aliasResult !== false){
-            ///// initial IF statement - else will match non-aliased countries
-
+        if (aliasResult !== false) {
             var aliasMatch = aliasArr.find(element => {
                 return element.toLowerCase() === inputVal.toLowerCase();
             });
@@ -205,6 +168,7 @@ function getInputValue(){
                     aliasMatch = "Trinidad and Tobago";
                     break;
                 case aliasMatch = aliasArr[22]:
+                case aliasMatch = aliasArr[23]:
                     aliasMatch = "United States of America";
                     break;
                 default:
@@ -233,7 +197,7 @@ function getInputValue(){
 }
 
 function addName(countryName){
-    var classAdd = document.getElementById(countryName.toLowerCase());    
+    var classAdd = document.getElementById(countryName.toLowerCase());
     classAdd.innerHTML = countryName;
 
     if (classAdd.classList.contains("cdata")){
